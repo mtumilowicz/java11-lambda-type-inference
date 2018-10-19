@@ -6,20 +6,22 @@ _Reference_: https://medium.com/the-java-report/java-11-sneak-peek-local-variabl
 _Reference_: https://stackoverflow.com/questions/50225672/java-11-local-variable-syntax-for-lambda-parameters-applications
 
 # project description
-* explicit
+We have three ways to provide types to lambdas:
+* **explicit**
     ```
     Predicate<String> isLowercase = (String str) -> str.equals(str.toLowerCase());
     ```
-* implicit
+* **implicit**
     ```
     Predicate<String> isLowercase = str -> str.equals(str.toLowerCase());
     ```
-* inference
+* **inference**
     ```
     Predicate<String> isLowercase = (var str) -> str.equals(str.toLowerCase());
     ```
 As you may see - java has two mechanisms for type inference on local 
-lambda expression variables (as mentioned above - implicit, interference).
+lambda expression variables (as mentioned above - `implicit` and 
+`interference`).
 
 Previously (prior to 11), if we wanted to use modifiers on lambda formals 
 we had to use explicit syntax, now it is possible to write:
