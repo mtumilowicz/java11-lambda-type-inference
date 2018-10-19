@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/mtumilowicz/java11-lambda-type-inference.svg?branch=master)](https://travis-ci.com/mtumilowicz/java11-lambda-type-inference)
+
 # java11-lambda-type-inference
 The main goal of this project is to show how to use type inference
 for lambda expressions.
