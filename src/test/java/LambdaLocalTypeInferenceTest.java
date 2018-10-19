@@ -1,3 +1,4 @@
+import lombok.NonNull;
 import org.junit.Test;
 
 import java.util.function.Predicate;
@@ -28,9 +29,27 @@ public class LambdaLocalTypeInferenceTest {
         assertTrue(isLowercase.test("abc"));
     }
 
-//    @Test(expected = IllegalArgumentException.class)
-//    public void inference_annotation() {
-//        Predicate<String> isLowercase = (@Annotation var str) -> str.equals(str.toLowerCase());
-//        isLowercase.test(null);
-//    }
+    @Test
+    public void type_annotation_noException() {
+        Predicate<String> isLowercase = (@NonNull String str) -> str.equals(str.toLowerCase());
+        assertTrue(isLowercase.test("abc"));
+    }
+
+    @Test
+    public void inference_annotation_noException() {
+        Predicate<String> isLowercase = (@NonNull var str) -> str.equals(str.toLowerCase());
+        assertTrue(isLowercase.test("abc"));
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void type_annotation_exception() {
+        Predicate<String> isLowercase = (@NonNull String str) -> str.equals(str.toLowerCase());
+        isLowercase.test(null);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void inference_annotation_exception() {
+        Predicate<String> isLowercase = (@NonNull var str) -> str.equals(str.toLowerCase());
+        isLowercase.test(null);
+    }
 }
