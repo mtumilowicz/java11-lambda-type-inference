@@ -23,7 +23,7 @@ We have three ways to provide types to lambdas:
     ```
 As you may see - java has two mechanisms for type inference on local 
 lambda expression variables (as mentioned above - `implicit` and 
-`interference`).
+`inference`).
 
 Previously (prior to 11), if we wanted to use modifiers on lambda formals 
 we had to use explicit syntax, now it is possible to write:
